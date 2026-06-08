@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOID DIVER: Escape from the Abyss — Co-op Extraction Action-RPG</title>
+<meta name="description" content="VOID DIVER is a co-op extraction action-RPG in HD-2D. Run an antique shop above, send divers into the abyss below, recover relics, and escape alive.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="theme-color" content="#05070a">
+<meta property="og:title" content="VOID DIVER: Escape from the Abyss">
+<meta property="og:description" content="A co-op extraction action-RPG in HD-2D. Dive. Explore. Escape.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://voiddiver.net/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://voiddiver.net/">
+<meta property="og:site_name" content="VOID DIVER">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://voiddiver.net/img/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='9' fill='%2305070a'/><path d='M20 6 L32 18 L20 34 L8 18 Z' fill='none' stroke='%235fd0e6' stroke-width='2.4' stroke-linejoin='round'/><path d='M20 14 L20 25 M15.5 20.5 L20 25 L24.5 20.5' fill='none' stroke='%23e85d4a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<script src="i18n.js"></script>
+<script src="i18n3.js"></script>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="VOID DIVER"><img src="img/logo.png" alt="VOID DIVER" class="brand-logo game-logo" data-logo="img/"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#loop" data-i18n="v3TwoLabel">The loop</a>
+      <a href="#gameplay" data-i18n="navGameplay">Gameplay</a>
+      <a href="#divers" data-i18n="navDivers">Divers</a>
+      <a href="#media" data-i18n="navMedia">Media</a>
+      <a href="#roadmap" data-i18n="navRoadmap">Roadmap</a>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">KR</button>
+        <button class="lang-btn" data-lang="zh" onclick="setLang('zh')">CN</button>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang="ja" onclick="setLang('ja')">JP</button>
+      </div>
+      <a class="nav-cta" href="https://store.steampowered.com/app/3438920/" target="_blank" rel="noopener" data-i18n="navWishlist">Wishlist on Steam</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <video class="hero-media" id="heroMedia" autoplay muted loop playsinline poster="img/keyart.jpg" preload="metadata"><source src="media/hero.mp4" type="video/mp4"></video>
+  <div class="hero-veil"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <span class="hero-badge"><span class="dot"></span> <span data-i18n="v2HeroBadge">Steam Next Fest &middot; June 15&ndash;22</span></span>
+    <img src="img/logo.png" alt="VOID DIVER — Escape from the Abyss" class="hero-logo game-logo" data-logo="img/">
+    <p class="hero-tagline" data-i18n="heroTagline">Dive. Explore. Escape.</p>
+    <p class="hero-sub" data-i18n="heroSub">A co-op extraction action-RPG in HD-2D. Keep an antique shop called <strong>Valusha</strong>, send your divers into the dungeons of the abyss for the relics buried there, and bring them home alive.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://store.steampowered.com/app/3438920/" target="_blank" rel="noopener" data-i18n="heroWishlist">Wishlist on Steam</a>
+      <a class="btn btn-ghost" href="#trailer" data-i18n="heroTrailer">Watch trailer</a>
+      <a class="btn btn-ghost" href="https://discord.gg/voiddiver" target="_blank" rel="noopener" data-i18n="heroDiscord">Join the Discord</a>
+    </div>
+  </div>
+  <a class="hero-scroll" href="#stats" data-i18n="v3HeroScroll">Begin the descent</a>
+</section>
+
+<!-- STATS (count-up) -->
+<section class="stats" id="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><b class="count-up" data-target="120000" data-suffix="+">120,000+</b><span data-i18n="statWishlists">Steam wishlists</span></div>
+    <div class="stat"><b class="count-up" data-target="91" data-suffix="%">91%</b><span data-i18n="statReview">Very Positive demo</span></div>
+    <div class="stat"><b data-i18n="statCoopNum">Up to 3</b><span data-i18n="statCoop">player co-op (PvE)</span></div>
+  </div>
+</section>
+
+<!-- DIPTYCH: two worlds -->
+<section id="loop">
+  <div class="wrap diptych-head reveal">
+    <p class="kicker" data-i18n="v3TwoLabel">The loop</p>
+    <h2 data-i18n="v3TwoTitle">Two worlds, one loop</h2>
+    <p class="lead" data-i18n="v3TwoSub">Run a shop on the surface. Send divers into the abyss below. One feeds the other.</p>
+  </div>
+  <div class="diptych">
+    <div class="dip shop">
+      <video src="media/clip-shop.mp4" poster="img/shot-5.jpg" autoplay muted loop playsinline preload="none"></video>
+      <div class="dip-veil"></div>
+      <div class="dip-body">
+        <p class="dip-kicker" data-i18n="v3ShopKicker">Above</p>
+        <h3 data-i18n="v3ShopTitle">The shop</h3>
+        <p data-i18n="v3ShopDesc">Valusha sits on the surface. Display your relics, hire clerks, and haggle with VIPs &mdash; the takings bankroll your next descent.</p>
+      </div>
+    </div>
+    <div class="dip abyss">
+      <video src="media/clip-extraction.mp4" poster="img/shot-1.jpg" autoplay muted loop playsinline preload="none"></video>
+      <div class="dip-veil"></div>
+      <div class="dip-body">
+        <p class="dip-kicker" data-i18n="v3AbyssKicker">Below</p>
+        <h3 data-i18n="v3AbyssTitle">The dive</h3>
+        <p data-i18n="v3AbyssDesc">The abyss waits beneath. Send divers into ever-changing dungeons, face what lurks there, and bring the relics back alive.</p>
+      </div>
+    </div>
+    <div class="dip-divider" aria-hidden="true"><span>↕</span></div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="section" id="gameplay">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="kicker" data-i18n="v2GameplayLabel">Gameplay</p>
+      <h2 data-i18n="featTitle">Core gameplay</h2>
+    </header>
+    <div class="pillar reveal">
+      <figure class="pillar-art"><video src="media/clip-coop.mp4" poster="img/shot-11.jpg" autoplay muted loop playsinline preload="none"></video></figure>
+      <div class="pillar-copy"><p class="pillar-num">01</p><h3 data-i18n="feat1Title">Three-player co-op</h3><p data-i18n="feat1Desc">Up to three divers, no PvP. Watch each other&rsquo;s backs and push deeper together.</p></div>
+    </div>
+    <div class="pillar reveal">
+      <figure class="pillar-art"><video src="media/clip-dungeon.mp4" poster="img/shot-1.jpg" autoplay muted loop playsinline preload="none"></video></figure>
+      <div class="pillar-copy"><p class="pillar-num">02</p><h3 data-i18n="feat3Title">Dungeons that change</h3><p data-i18n="feat3Desc">The dungeon wears a different face every run. A memorized route won&rsquo;t save you.</p></div>
+    </div>
+    <div class="pillar reveal">
+      <figure class="pillar-art"><video src="media/clip-darkyoung.mp4" poster="img/shot-7.jpg" autoplay muted loop playsinline preload="none"></video></figure>
+      <div class="pillar-copy"><p class="pillar-num">03</p><h3 data-i18n="feat7Title">Zone anomalies</h3><p data-i18n="feat7Desc">Anomalies roll through the dungeon like weather, and they hit divers and monsters alike.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- THREATS -->
+<section class="section threats">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="kicker" data-i18n="v3ThreatLabel">What waits below</p>
+      <h2 data-i18n="v3ThreatTitle">The things in the dark</h2>
+      <p class="lead" data-i18n="v3ThreatDesc">Mimics that pose as chests, vicious elite monsters, and multi-phase bosses like the Soul Collector and Eldris. The richest relics keep the worst company.</p>
+    </header>
+    <div class="threat-grid reveal">
+      <figure class="threat"><video src="media/clip-scythe.mp4" poster="img/shot-3.jpg" autoplay muted loop playsinline preload="none"></video><figcaption data-i18n="hl5">Soul Collector</figcaption></figure>
+      <figure class="threat"><video src="media/clip-hatman.mp4" poster="img/shot-4.jpg" autoplay muted loop playsinline preload="none"></video><figcaption data-i18n="hl3">Elite monster</figcaption></figure>
+      <figure class="threat"><video src="media/clip-boss.mp4" poster="img/shot-9.jpg" autoplay muted loop playsinline preload="none"></video><figcaption data-i18n="hl4">Boss battle</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- DIVERS -->
+<section class="section divers" id="divers">
+  <div class="wrap divers-grid">
+    <figure class="diver-art reveal"><img src="img/raven.png" alt="Raven, a playable diver" loading="lazy"></figure>
+    <div class="divers-copy reveal">
+      <p class="kicker" data-i18n="diversLabel">The divers</p>
+      <h2>Raven</h2>
+      <p class="diver-role" data-i18n="diverRole">Playable diver &middot; joined in the Raven update</p>
+      <p data-i18n="diverBio1">Raven, the silver-haired diver, joined in the update that carried the demo past <strong>120,000 wishlists</strong>.</p>
+      <p class="muted" data-i18n="diverBio2">And more divers are waiting their turn, each with their own way down.</p>
+      <div class="diver-clip"><video src="media/clip-raven.mp4" poster="img/shot-9.jpg" autoplay muted loop playsinline preload="none"></video></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAILER -->
+<section class="section" id="trailer">
+  <div class="wrap">
+    <header class="section-head reveal"><p class="kicker" data-i18n="trailerLabel">Trailer</p><h2 data-i18n="trailerTitle">Watch the trailer</h2></header>
+    <div class="trailer-frame reveal"><video src="media/trailer.mp4" poster="img/keyart.jpg" controls preload="none" playsinline></video></div>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section class="section" id="media">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="kicker" data-i18n="mediaLabel">Screenshots</p>
+      <h2 data-i18n="mediaTitle">Screenshots</h2>
+      <a class="head-link" href="https://store.steampowered.com/app/3438920/" target="_blank" rel="noopener" data-i18n="mediaTrailer">See more on Steam &rarr;</a>
+    </header>
+    <div class="gallery" id="gallery">
+      <button class="shot wide" data-full="img/shot-1.jpg"><img src="img/shot-1.jpg" alt="Diving an abyssal dungeon" loading="lazy"></button>
+      <button class="shot" data-full="img/shot-3.jpg"><img src="img/shot-3.jpg" alt="Facing the Soul Collector" loading="lazy"></button>
+      <button class="shot" data-full="img/shot-4.jpg"><img src="img/shot-4.jpg" alt="An elite encounter" loading="lazy"></button>
+      <button class="shot" data-full="img/shot-7.jpg"><img src="img/shot-7.jpg" alt="Boss battle" loading="lazy"></button>
+      <button class="shot" data-full="img/shot-10.jpg"><img src="img/shot-10.jpg" alt="A blood-ringed boss arena" loading="lazy"></button>
+      <button class="shot" data-full="img/shot-9.jpg"><img src="img/shot-9.jpg" alt="Eldritch confrontation" loading="lazy"></button>
+      <button class="shot" data-full="img/shot-11.jpg"><img src="img/shot-11.jpg" alt="Co-op against a field boss" loading="lazy"></button>
+      <button class="shot wide" data-full="img/shot-2.jpg"><img src="img/shot-2.jpg" alt="Preparing a diver" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS + PRESS -->
+<section class="section" id="events">
+  <div class="wrap">
+    <header class="section-head reveal"><p class="kicker" data-i18n="eventsLabel">Events</p><h2 data-i18n="eventsTitle">Out in the world</h2></header>
+    <div class="events-grid">
+      <article class="event-card reveal"><h3 data-i18n="evBitTitle">BitSummit PUNCH 2026</h3><p data-i18n="evBitDesc">A booth in Kyoto, May 22&ndash;24, alongside PR partner Ukiyo.</p></article>
+      <article class="event-card reveal"><h3 data-i18n="evExpoTitle">INDIE Live Expo</h3><p data-i18n="evExpoDesc">Official sponsor of the BitSummit &times; INDIE Live Expo special broadcast.</p></article>
+    </div>
+    <p class="press-label reveal" data-i18n="pressLabel">Key art &amp; press</p>
+    <div class="press-strip reveal">
+      <button class="shot" data-full="img/pax-keyart.jpg"><img src="img/pax-keyart.jpg" alt="PAX key art" loading="lazy"></button>
+      <button class="shot" data-full="img/poster-bitsummit.jpg"><img src="img/poster-bitsummit.jpg" alt="BitSummit 2026 poster" loading="lazy"></button>
+      <button class="shot" data-full="img/ad-japan.jpg"><img src="img/ad-japan.jpg" alt="Japan advertisement" loading="lazy"></button>
+      <button class="shot" data-full="img/roadmap.jpg"><img src="img/roadmap.jpg" alt="2026 roadmap" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="section" id="roadmap">
+  <div class="wrap">
+    <header class="section-head reveal"><p class="kicker" data-i18n="roadLabel">Roadmap</p><h2 data-i18n="roadTitle">2026 roadmap</h2></header>
+    <div class="road-grid">
+      <article class="road done reveal"><p class="road-when" data-i18n="road1When">April 2026</p><h3 data-i18n="road1Title">Raven update</h3><ul data-i18n="road1List"><li>New playable diver: Raven</li><li>Reworked combat mechanics and feel</li><li>Discord playtest and demo update</li></ul></article>
+      <article class="road now reveal"><p class="road-when" data-i18n="road2When">June 2026 &middot; <em>now</em></p><h3 data-i18n="road2Title">Steam Next Fest</h3><ul data-i18n="road2List"><li>Shop management and customer negotiation</li><li>Equipment, trait and balance overhaul</li><li>New bosses and many quality-of-life changes</li><li>Demo from June 15&ndash;22</li></ul></article>
+      <article class="road next reveal"><p class="road-when" data-i18n="road3When">Second half of 2026</p><h3 data-i18n="road3Title">What&rsquo;s next</h3><ul data-i18n="road3List"><li>More playable divers</li><li>A new chapter and deeper regions of the abyss</li><li>New relics to recover</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section class="community" id="join">
+  <div class="community-bg" style="background-image:url('img/capsule.jpg')"></div>
+  <div class="community-veil"></div>
+  <div class="wrap community-inner reveal">
+    <p class="kicker" data-i18n="communityLabel">Community</p>
+    <h2 data-i18n="v2CommunityTitle">Come down with us</h2>
+    <p data-i18n="v2CommunitySub">Wishlist VOID DIVER on Steam and join the official Discord to follow it all the way down.</p>
+    <img class="community-emotes" src="img/emotes.jpg" alt="In-game emotes" loading="lazy">
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://store.steampowered.com/app/3438920/" target="_blank" rel="noopener" data-i18n="heroWishlist">Wishlist on Steam</a>
+      <a class="btn btn-ghost" href="https://discord.gg/voiddiver" target="_blank" rel="noopener" data-i18n="heroDiscord">Join the Discord</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <div class="foot-brand">
+      <p><strong>VOID DIVER: Escape from the Abyss</strong><br>
+      <span data-i18n="footDev">Developed by Nemo Studio &middot; LoadComplete</span></p>
+    </div>
+    <div class="foot-right">
+      <img class="foot-lc" src="img/loadcomplete.png" alt="LoadComplete" loading="lazy">
+      <nav class="foot-links">
+        <a href="https://store.steampowered.com/app/3438920/" target="_blank" rel="noopener">Steam</a>
+        <a href="https://discord.gg/voiddiver" target="_blank" rel="noopener">Discord</a>
+        <a href="#top" data-i18n="footBackTop">Back to top</a>
+      </nav>
+    </div>
+  </div>
+  <div class="wrap foot-fine"><p data-i18n="footFine">VOID DIVER and all artwork, characters and trademarks belong to Nemo Studio / LoadComplete.</p></div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">&lsaquo;</button>
+  <img id="lbImg" alt="">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">&rsaquo;</button>
+</div>
+
+<script src="v3.js"></script>
+</body>
+</html>
